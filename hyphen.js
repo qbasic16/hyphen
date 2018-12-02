@@ -179,7 +179,7 @@
       var
 
       charIsDot = patternChar==='.',
-      charIsNumber = !charIsDot && /\d/.test(patternChar),
+      charIsNumber = Boolean(!charIsDot && Number.parseInt(patternChar, 10) >= 0),
 
       state = charIsDot ? (
         patternCharIndex-1===0 ? states.stickToLeft : states.stickToRight
